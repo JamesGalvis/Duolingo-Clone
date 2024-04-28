@@ -1,21 +1,19 @@
-import { Button } from '@/components/ui/button'
+import { Route, Routes } from 'react-router-dom'
+
+import { Marketing } from '@/components/pages/marketing'
+import { NotFound } from '@/components/pages/not-found'
+import { MarketingLayout } from '@/components/layouts/marketing-layout'
 
 function App() {
   return (
-    <div className="p-4 space-y-4 flex flex-col max-w-[280px]">
-      <Button>Default</Button>
-      <Button variant="primary">Primary</Button>
-      <Button variant="primaryOutline">Primary Outline</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="secondaryOutline">Secondary Outline</Button>
-      <Button variant="danger">Danger</Button>
-      <Button variant="dangerOutline">Danger Outline</Button>
-      <Button variant="super">Super</Button>
-      <Button variant="superOutline">Super Outline</Button>
-      <Button variant="ghost">Ghost</Button>
+    <div className="size-full">
+      <Routes>
+        <Route path="/" element={<MarketingLayout />}>
+          <Route index element={<Marketing />} />
+        </Route>
 
-      <Button variant="sidebar">Sidebar</Button>
-      <Button variant="sidebarOutline">Sidebar Outline</Button>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   )
 }
