@@ -1,6 +1,6 @@
-import { useAuth } from '@clerk/clerk-react'
-import { Loader } from 'lucide-react'
 import { useEffect } from 'react'
+import { Loader } from 'lucide-react'
+import { useAuth } from '@clerk/clerk-react'
 import { Outlet, useNavigate } from 'react-router-dom'
 
 export function ProtectedRoutes() {

@@ -5,6 +5,7 @@ import { NotFound } from '@/components/pages/not-found'
 import { MarketingLayout } from '@/components/layouts/marketing-layout'
 import { ProtectedRoutes } from '@/components/layouts/protected-routes'
 import { Learn } from '@/components/pages/learn'
+import { MainLayout } from '@/components/layouts/main-layout'
 
 function App() {
   return (
@@ -15,7 +16,9 @@ function App() {
         </Route>
 
         <Route element={<ProtectedRoutes />}>
-          <Route path='/learn' element={<Learn />} />
+          <Route path="/learn" element={<MainLayout />}>
+            <Route index element={<Learn />} />
+          </Route>
         </Route>
 
         <Route path="*" element={<NotFound />} />
