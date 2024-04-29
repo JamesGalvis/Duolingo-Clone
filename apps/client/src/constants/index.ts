@@ -25,3 +25,30 @@ export const flags = [
     alt: 'Japan flag',
   },
 ]
+
+export const sidebarItems = [
+  {
+    iconSrc: '/icons/learn.svg',
+    label: 'Learn',
+    href: '/learn',
+    tooltipLabel: 'Learn',
+  },
+  {
+    iconSrc: '/icons/leaderboard.svg',
+    label: 'Leaderboard',
+    href: '/leaderboard',
+    tooltipLabel: 'Leaderboard',
+  },
+  {
+    iconSrc: '/icons/practice.svg',
+    label: 'Quests',
+    href: '/quest',
+    tooltipLabel: 'Quests',
+  },
+  {
+    iconSrc: '/icons/store.svg',
+    label: 'Store',
+    href: '/store',
+    tooltipLabel: 'Store',
+  },
+]
