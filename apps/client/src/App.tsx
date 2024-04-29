@@ -6,6 +6,9 @@ import { MarketingLayout } from '@/components/layouts/marketing-layout'
 import { ProtectedRoutes } from '@/components/layouts/protected-routes'
 import { Learn } from '@/components/pages/learn'
 import { MainLayout } from '@/components/layouts/main-layout'
+import { LeaderboardPage } from '@/components/pages/leaderboard'
+import { QuestsPage } from '@/components/pages/quests'
+import { StorePage } from '@/components/pages/store'
 
 function App() {
   return (
@@ -16,8 +19,11 @@ function App() {
         </Route>
 
         <Route element={<ProtectedRoutes />}>
-          <Route path="/learn" element={<MainLayout />}>
-            <Route index element={<Learn />} />
+          <Route element={<MainLayout />}>
+            <Route path="/learn" element={<Learn />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
+            <Route path="/quest" element={<QuestsPage />} />
+            <Route path="/store" element={<StorePage />} />
           </Route>
         </Route>
 

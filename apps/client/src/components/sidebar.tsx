@@ -14,25 +14,25 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <div
       className={cn(
-        'md:fixed flex flex-col lg:w-[256px] w-[88px] h-full left-0 top-0 px-4 md:border-r-2',
+        'md:fixed flex flex-col xl:w-[256px] w-[88px] h-full left-0 top-0 px-4 md:border-r-2',
         className
       )}
     >
       <Link to="/learn">
-        <div className="pt-8 lg:pl-4 pl-1 pb-7 flex items-center lg:gap-x-3">
+        <div className="pt-8 xl:pl-4 pl-1 pb-7 flex items-center xl:gap-x-3">
           <img
             alt="Logo"
             src="/icons/duolingo_wordmark.svg"
             height={30}
             width={127.99}
-            className="max-lg:hidden"
+            className="max-xl:hidden"
           />
           <img
             alt="Logo"
             src="/icons/duo-side-logo.svg"
             height={40}
             width={40}
-            className="lg:hidden min-w-[40px] min-h-[40px]"
+            className="xl:hidden min-w-[40px] min-h-[40px]"
           />
         </div>
       </Link>
@@ -46,7 +46,7 @@ export function Sidebar({ className }: SidebarProps) {
           />
         ))}
       </div>
-      <div className="flex items-center md:justify-center lg:justify-start p-4">
+      <div className="flex items-center md:justify-center xl:justify-start p-4">
         <ClerkLoading>
           <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
         </ClerkLoading>

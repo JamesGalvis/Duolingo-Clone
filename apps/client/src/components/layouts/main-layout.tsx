@@ -9,8 +9,8 @@ export function MainLayout() {
     <>
       <Sidebar className="hidden md:flex" />
       <MobileHeader />
-      <main className="lg:pl-[256px] md:pl-[88px] md:pb-0 pb-[80px] size-full md:pt-0 pt-[50px]">
-        <div className="h-full">
+      <main className="xl:pl-[256px] md:pl-[88px] md:pb-0 pb-[80px] size-full md:pt-0 pt-[50px]">
+        <div className="max-w-[1056px] mx-auto pt-6 h-full">
           <Outlet />
         </div>
       </main>
