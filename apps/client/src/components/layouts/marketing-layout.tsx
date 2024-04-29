@@ -7,7 +7,7 @@ export function MarketingLayout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="flex-1 flex flex-col items-center justify-center">
+      <main className="flex-1 flex items-center justify-center px-[55px] py-[44px]">
         <Outlet />
       </main>
       <Footer />

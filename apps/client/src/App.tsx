@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom'
 import { Marketing } from '@/components/pages/marketing'
 import { NotFound } from '@/components/pages/not-found'
 import { MarketingLayout } from '@/components/layouts/marketing-layout'
+import { ProtectedRoutes } from '@/components/layouts/protected-routes'
+import { Learn } from '@/components/pages/learn'
 
 function App() {
   return (
@@ -10,6 +12,10 @@ function App() {
       <Routes>
         <Route path="/" element={<MarketingLayout />}>
           <Route index element={<Marketing />} />
+        </Route>
+
+        <Route element={<ProtectedRoutes />}>
+          <Route path='/learn' element={<Learn />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />
