@@ -20,7 +20,7 @@ export const flags = [
     alt: 'Italy flag',
   },
   {
-    src: '/icons/hr.svg',
+    src: '/icons/jp.svg',
     label: 'Japanese',
     alt: 'Japan flag',
   },
