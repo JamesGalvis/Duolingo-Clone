@@ -34,8 +34,8 @@ export function Header() {
 
             <SignedOut>
               <SignInButton mode="modal" fallbackRedirectUrl="/learn">
-                <Button size="lg" variant="secondary">
-                  Start now
+                <Button size="lg" variant="primary">
+                  Login
                 </Button>
               </SignInButton>
             </SignedOut>
