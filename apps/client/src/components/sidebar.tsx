@@ -39,6 +39,7 @@ export function Sidebar({ className }: SidebarProps) {
       <div className="flex-1 flex flex-col gap-y-2">
         {sidebarItems.map(({ href, iconSrc, label, tooltipLabel }) => (
           <SidebarItem
+            key={href}
             iconSrc={iconSrc}
             href={href}
             label={label}

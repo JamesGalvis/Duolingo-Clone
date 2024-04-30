@@ -6,7 +6,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CoursesService {
   constructor(private prisma: PrismaService) {}
 
-  async getAll(): Promise<Courses[] | [] | null> {
+  async getCourses(): Promise<Courses[] | [] | null> {
     return this.prisma.courses.findMany();
   }
 }

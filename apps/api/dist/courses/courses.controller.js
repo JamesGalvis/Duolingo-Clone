@@ -16,9 +16,8 @@ let CoursesController = class CoursesController {
     constructor(coursesService) {
         this.coursesService = coursesService;
     }
-    ;
-    async getTasks() {
-        return await this.coursesService.getAll();
+    async getCourses() {
+        return await this.coursesService.getCourses();
     }
 };
 exports.CoursesController = CoursesController;
@@ -27,7 +26,7 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], CoursesController.prototype, "getTasks", null);
+], CoursesController.prototype, "getCourses", null);
 exports.CoursesController = CoursesController = __decorate([
     (0, common_1.Controller)('courses'),
     __metadata("design:paramtypes", [courses_service_1.CoursesService])

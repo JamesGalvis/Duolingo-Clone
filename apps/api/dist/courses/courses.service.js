@@ -16,7 +16,7 @@ let CoursesService = class CoursesService {
     constructor(prisma) {
         this.prisma = prisma;
     }
-    async getAll() {
+    async getCourses() {
         return this.prisma.courses.findMany();
     }
 };

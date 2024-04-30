@@ -9,6 +9,7 @@ import { MainLayout } from '@/components/layouts/main-layout'
 import { LeaderboardPage } from '@/components/pages/leaderboard'
 import { QuestsPage } from '@/components/pages/quests'
 import { StorePage } from '@/components/pages/store'
+import { CoursesPage } from '@/components/pages/courses'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/quest" element={<QuestsPage />} />
             <Route path="/store" element={<StorePage />} />
+            <Route path="/courses" element={<CoursesPage />} />
           </Route>
         </Route>
 

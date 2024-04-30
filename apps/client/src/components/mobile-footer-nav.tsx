@@ -3,9 +3,10 @@ import { SidebarItem } from '@/components/sidebar-item'
 
 export function MobileFooterNav() {
   return (
-    <div className="fixed bottom-0 h-[80px] w-full md:hidden flex items-center justify-evenly border-t-2">
+    <div className="fixed bottom-0 h-[80px] w-full md:hidden flex items-center justify-evenly border-t-2 bg-white">
       {sidebarItems.map(({ iconSrc, href, tooltipLabel }) => (
         <SidebarItem
+          key={href}
           href={href}
           iconSrc={iconSrc}
           tooltipeLabel={tooltipLabel}
