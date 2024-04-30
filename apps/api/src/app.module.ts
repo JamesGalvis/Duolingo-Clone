@@ -5,9 +5,9 @@ import { CoursesModule } from './courses/courses.module';
 
 @Module({
   imports: [
-    ServeStaticModule.forRoot({
-      rootPath: join('__dirname', '../../', 'client/dist'),
-    }),
+    // ServeStaticModule.forRoot({
+    //   rootPath: join('__dirname', '../../', 'client/dist'),
+    // }),
     CoursesModule,
   ],
   controllers: [],
