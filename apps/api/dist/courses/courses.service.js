@@ -17,7 +17,14 @@ let CoursesService = class CoursesService {
         this.prisma = prisma;
     }
     async getCourses() {
-        return this.prisma.courses.findMany();
+        return await this.prisma.courses.findMany();
+    }
+    async getCourseById(id) {
+        return await this.prisma.courses.findFirst({
+            where: {
+                id,
+            },
+        });
     }
 };
 exports.CoursesService = CoursesService;

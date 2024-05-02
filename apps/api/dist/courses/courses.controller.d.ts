@@ -7,4 +7,9 @@ export declare class CoursesController {
         title: string;
         imageSrc: string;
     }[]>;
+    getCourseById(id: string): Promise<{
+        id: string;
+        title: string;
+        imageSrc: string;
+    }>;
 }

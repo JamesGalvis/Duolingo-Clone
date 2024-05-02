@@ -4,4 +4,5 @@ export declare class CoursesService {
     private prisma;
     constructor(prisma: PrismaService);
     getCourses(): Promise<Courses[] | [] | null>;
+    getCourseById(id: string): Promise<Courses | null | undefined>;
 }

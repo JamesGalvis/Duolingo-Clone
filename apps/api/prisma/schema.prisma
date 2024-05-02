@@ -17,4 +17,19 @@ model Courses {
   id       String @id @default(cuid())
   title    String
   imageSrc String
+
+  userProgress UserProgress[]
+}
+
+model UserProgress {
+  userId String @id
+  userName String @default("User")
+  userAvatar String @default("/icons/avatar1.svg")
+  activeCourseId String
+  hearts Int @default(5)
+  points Int @default(0)
+
+  activeCourse Courses @relation(fields: [activeCourseId], references: [id], onDelete: Cascade)
+
+  @@index([activeCourseId])
 }

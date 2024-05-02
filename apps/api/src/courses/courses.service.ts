@@ -7,6 +7,14 @@ export class CoursesService {
   constructor(private prisma: PrismaService) {}
 
   async getCourses(): Promise<Courses[] | [] | null> {
-    return this.prisma.courses.findMany();
+    return await this.prisma.courses.findMany();
+  }
+
+  async getCourseById(id: string): Promise<Courses | null | undefined> {
+    return await this.prisma.courses.findFirst({
+      where: {
+        id,
+      },
+    });
   }
 }

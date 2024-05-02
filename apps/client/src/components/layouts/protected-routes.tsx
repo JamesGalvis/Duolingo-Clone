@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
-import { Loader } from 'lucide-react'
 import { useAuth } from '@clerk/clerk-react'
 import { Outlet, useNavigate } from 'react-router-dom'
+
+import { Loader } from '@/components/loader'
 
 export function ProtectedRoutes() {
   const { isLoaded, userId } = useAuth()
@@ -14,11 +15,7 @@ export function ProtectedRoutes() {
   }, [isLoaded, navigate, userId])
 
   if (!isLoaded) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader className="h-6 w-6 text-muted-foreground animate-spin" />
-      </div>
-    )
+    return <Loader />
   }
 
   return <Outlet />

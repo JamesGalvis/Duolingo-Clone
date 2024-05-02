@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { CoursesModule } from './courses/courses.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -9,6 +10,7 @@ import { CoursesModule } from './courses/courses.module';
     //   rootPath: join('__dirname', '../../', 'client/dist'),
     // }),
     CoursesModule,
+    UsersModule,
   ],
   controllers: [],
   providers: [],
