@@ -13,8 +13,8 @@ import { Button } from '@/components/ui/button'
 
 export function Marketing() {
   return (
-    <div className="max-w-[980px] mx-auto flex-1 flex lg:flex-row flex-col items-center justify-center gap-6">
-      <div className="flex-1 relative min-w-[240px] min-h-[240px] lg:min-w-[424px] lg:min-h-[424px] max-lg:mb-8">
+    <div className="max-w-[980px] mx-auto flex-1 flex lg:flex-row flex-col items-center justify-center xs:gap-6 gap-3">
+      <div className="flex-1 relative min-w-[280px] min-h-[240px] lg:min-w-[424px] lg:min-h-[424px] max-lg:mb-8">
         <img
           alt="Hero"
           src="/images/hero2.svg"
@@ -22,10 +22,10 @@ export function Marketing() {
         />
       </div>
       <div className="flex-1 max-lg:w-[78%] max-md:w-full flex flex-col items-center gap-y-8">
-        <h1 className="text-[32px] text-[#4B4B4B] font-bold text-center">
+        <h1 className="xs:text-[38px] text-[32px] text-[#4B4B4B] dark:text-white font-extrabold text-center">
           ¡The fun, effective and free way to learn a language!
         </h1>
-        <div className="max-w-[380px] space-y-3 px-6">
+        <div className="max-w-[380px] space-y-3 xs:px-6">
           <ClerkLoading>
             <Loader className="h-5 w-5 text-muted-foreground animate-spin mx-auto" />
           </ClerkLoading>
@@ -41,7 +41,7 @@ export function Marketing() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="w-full text-md h-14"
+                  className="w-full text-lg h-14"
                 >
                   Start now
                 </Button>
@@ -50,7 +50,7 @@ export function Marketing() {
                 <Button
                   size="lg"
                   variant="primaryOutline"
-                  className="w-full text-md h-14"
+                  className="w-full text-lg h-14"
                 >
                   I already have an account
                 </Button>
@@ -61,7 +61,7 @@ export function Marketing() {
               <Button
                 size="lg"
                 variant="primaryOutline"
-                className="text-md h-14"
+                className="text-lg h-14"
               >
                 <Link to="/learn">Continue Learning</Link>
               </Button>
