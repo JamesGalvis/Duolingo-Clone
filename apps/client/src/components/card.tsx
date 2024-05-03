@@ -23,7 +23,7 @@ export function Card({
     <div
       onClick={() => onClick(id)}
       className={cn(
-        'h-full border-2 rounded-xl border-b-4 hover:bg-black/5 cursor-pointer active:border-b-2 flex flex-col items-center justify-between p-3 pb-6 min-h-[217px] min-w-[200px]',
+        'h-full border-2 rounded-xl border-b-4 hover:bg-black/5 dark:hover:bg-[#0f191d] cursor-pointer active:border-b-2 flex flex-col items-center justify-between p-3 pb-6 min-h-[217px] min-w-[200px]',
         disabled && 'pointer-events-none opacity-50'
       )}
     >
@@ -39,9 +39,9 @@ export function Card({
         alt={title}
         height={70}
         width={93.33}
-        className="rounded-xl drop-shadow-md border object-cover pointer-events-none"
+        className="rounded-[19px] drop-shadow-md border-4 border-[#f1f7fb] object-cover pointer-events-none"
       />
-      <p className="text-neutral-700 text-center font-bold mt-3 pointer-events-none">
+      <p className="text-neutral-700 dark:text-[#f1f7fb] text-center font-bold mt-3 pointer-events-none">
         {title}
       </p>
     </div>

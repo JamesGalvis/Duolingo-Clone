@@ -8,7 +8,7 @@ interface HeaderProps {
 
 export function Header({ title }: HeaderProps) {
   return (
-    <div className="sticky bg-white top-0 w-full pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50">
+    <div className="sticky bg-white dark:bg-background top-0 w-full pb-3 lg:pt-[28px] lg:mt-[-28px] flex items-center justify-between border-b-2 mb-5 text-neutral-400 lg:z-50 max-md:px-4">
       <Link to="/courses">
         <Button size="sm" variant="ghost">
           <ArrowLeft className="h-5 w-5 stroke-2 text-neutral-400" />

@@ -50,7 +50,7 @@ export function SidebarItem({
             </Link>
           </Button>
         </TooltipTrigger>
-        <TooltipContent className="xl:hidden" side={tooltipSide}>
+        <TooltipContent className="xl:hidden dark:bg-slate-300 dark:text-[#4b4b4b] font-medium text-base" side={tooltipSide}>
           <p>{tooltipeLabel}</p>
         </TooltipContent>
       </Tooltip>

@@ -11,35 +11,38 @@ import { LeaderboardPage } from '@/components/pages/leaderboard'
 import { QuestsPage } from '@/components/pages/quests'
 import { StorePage } from '@/components/pages/store'
 import { CoursesPage } from '@/components/pages/courses'
+import { ThemeProvider } from '@/components/theme-provider'
 import { fetcher } from '@/lib/fetcher'
 
 function App() {
   return (
-    <SWRConfig
-      value={{
-        fetcher,
-      }}
-    >
-      <div className="size-full">
-        <Routes>
-          <Route path="/" element={<MarketingLayout />}>
-            <Route index element={<Marketing />} />
-          </Route>
-
-          <Route element={<ProtectedRoutes />}>
-            <Route element={<MainLayout />}>
-              <Route path="/learn" element={<Learn />} />
-              <Route path="/leaderboard" element={<LeaderboardPage />} />
-              <Route path="/quest" element={<QuestsPage />} />
-              <Route path="/store" element={<StorePage />} />
-              <Route path="/courses" element={<CoursesPage />} />
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <SWRConfig
+        value={{
+          fetcher,
+        }}
+      >
+        <div className="size-full">
+          <Routes>
+            <Route path="/" element={<MarketingLayout />}>
+              <Route index element={<Marketing />} />
             </Route>
-          </Route>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
-    </SWRConfig>
+            <Route element={<ProtectedRoutes />}>
+              <Route element={<MainLayout />}>
+                <Route path="/learn" element={<Learn />} />
+                <Route path="/leaderboard" element={<LeaderboardPage />} />
+                <Route path="/quest" element={<QuestsPage />} />
+                <Route path="/store" element={<StorePage />} />
+                <Route path="/courses" element={<CoursesPage />} />
+              </Route>
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+      </SWRConfig>
+    </ThemeProvider>
   )
 }
 

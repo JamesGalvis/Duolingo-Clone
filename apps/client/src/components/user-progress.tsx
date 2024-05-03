@@ -4,6 +4,7 @@ import { InfinityIcon } from 'lucide-react'
 
 interface UserProgressProps {
   activeCourse: {
+    id: string
     title: string
     imageSrc: string
   }
@@ -25,8 +26,8 @@ export function UserProgress({
           <img
             src={activeCourse.imageSrc}
             alt={activeCourse.title}
-            className="rounded-md border"
-            width={32}
+            className="rounded-md border-2 border-[#f1f7fb]"
+            width={34}
             height={32}
           />
         </Button>
