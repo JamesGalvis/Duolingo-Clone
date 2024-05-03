@@ -6,9 +6,9 @@ export declare class UsersController {
         userId: string;
         userName: string;
         userAvatar: string;
-        activeCourseId: string;
         hearts: number;
         points: number;
+        activeCourseId: string;
     } & {
         activeCourse: {
             id: string;
@@ -20,8 +20,8 @@ export declare class UsersController {
         userId: string;
         userName: string;
         userAvatar: string;
-        activeCourseId: string;
         hearts: number;
         points: number;
+        activeCourseId: string;
     }>;
 }
