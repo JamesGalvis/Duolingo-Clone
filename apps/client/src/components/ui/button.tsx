@@ -16,7 +16,7 @@ const buttonVariants = cva(
         primaryOutline:
           'bg-white dark:bg-transparent dark:border-border text-sky-400 hover:bg-slate-100 border-slate-200 border-2 border-b-4 active:border-b-2',
         secondary:
-          'bg-[#58CC02] text-primary-foreground hover:bg-[#58CC02]/90 border-green-600 border-b-4 active:border-b-0',
+          'bg-[#58CC02] text-primary-foreground hover:bg-[#58CC02]/90 border-[#46a302] dark:text-white border-b-4 active:border-b-0',
         secondaryOutline: 'bg-white text-[#58CC02] hover:bg-slate-100',
         danger:
           'bg-rose-500 text-primary-foreground hover:bg-rose-500/90 border-rose-600 border-b-4 active:border-b-0',
@@ -30,6 +30,8 @@ const buttonVariants = cva(
           'bg-transparent text-slate-500 dark:text-[#DCE6EC] border-2 border-transparent hover:bg-slate-100 dark:hover:bg-[#202f36] transition-none',
         sidebarOutline:
           'bg-sky-500/15 text-sky-400 border-sky-300 border-2 hover:bg-sky-500/20  transition-none',
+        locked:
+          'bg-neutral-200 dark:bg-[#37464f] dark:border-[#2c383f] text-primary-foreground hover:bg-neutral-200/90 border-neutral-400 border-b-4 active: border-b-0',
       },
       size: {
         default: 'h-11 px-4 py-2',
@@ -37,6 +39,7 @@ const buttonVariants = cva(
         lg: 'h-12 px-8',
         icon: 'h-10 w-10 p-2',
         rounded: 'rounded-full',
+        full: 'h-full px-4 py-2',
       },
     },
     defaultVariants: {

@@ -15,7 +15,7 @@ export class UnitsService {
       },
     });
 
-    if (!userProgress.activeCourseId) {
+    if (!userId || !userProgress.activeCourseId) {
       return [];
     }
 
@@ -28,7 +28,11 @@ export class UnitsService {
           include: {
             challenges: {
               include: {
-                challengeProgress: true,
+                challengeProgress: {
+                  where: {
+                    userId,
+                  },
+                },
               },
             },
           },

@@ -1,17 +1,18 @@
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '@clerk/clerk-react'
 
-import { useUserProgress } from '@/hooks/swr-calls'
+import { useUnits, useUserProgress } from '@/hooks/swr-calls'
 import { StickyWrapper } from '@/components/sticky-wrapper'
 import { FeedWrapper } from '@/components/feed-wrapper'
-import { Header } from '@/components/feed-header'
 import { UserProgress } from '@/components/user-progress'
 import { Loader } from '@/components/loader'
+import { Unit } from '@/components/unit'
 
 export function Learn() {
   const { userId } = useAuth()
 
   const { userProgress, isLoading } = useUserProgress(userId)
+  const { units } = useUnits(userId)
 
   if (isLoading) {
     return <Loader />
@@ -32,7 +33,19 @@ export function Learn() {
         />
       </StickyWrapper>
       <FeedWrapper>
-        <Header title={userProgress.activeCourse.title} />
+        {units.map((unit) => (
+          <div key={unit.id} className="mb-10 pt-6 max-lg:px-6 max-xs:px-3">
+            <Unit
+              id={unit.id}
+              order={unit.order}
+              description={unit.description}
+              title={unit.title}
+              lessons={unit.lessons}
+              activeLesson={null}
+              activeLessonPercentage={0}
+            />
+          </div>
+        ))}
       </FeedWrapper>
     </div>
   )
