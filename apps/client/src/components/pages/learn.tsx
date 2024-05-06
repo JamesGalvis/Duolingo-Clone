@@ -1,7 +1,12 @@
 import { Navigate } from 'react-router-dom'
 import { useAuth } from '@clerk/clerk-react'
 
-import { useUnits, useUserProgress } from '@/hooks/swr-calls'
+import {
+  useCourseProgress,
+  useLessonPercentage,
+  useUnits,
+  useUserProgress,
+} from '@/hooks/swr-calls'
 import { StickyWrapper } from '@/components/sticky-wrapper'
 import { FeedWrapper } from '@/components/feed-wrapper'
 import { UserProgress } from '@/components/user-progress'
@@ -13,6 +18,8 @@ export function Learn() {
 
   const { userProgress, isLoading } = useUserProgress(userId)
   const { units } = useUnits(userId)
+  const { courseProgress } = useCourseProgress(userId)
+  const { percentage } = useLessonPercentage(userId)
 
   if (isLoading) {
     return <Loader />
@@ -41,8 +48,8 @@ export function Learn() {
               description={unit.description}
               title={unit.title}
               lessons={unit.lessons}
-              activeLesson={null}
-              activeLessonPercentage={0}
+              activeLesson={courseProgress?.activeLesson}
+              activeLessonPercentage={percentage}
             />
           </div>
         ))}

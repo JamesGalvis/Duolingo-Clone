@@ -1,7 +1,9 @@
 import { PrismaService } from 'src/prisma/prisma.service';
+import { UsersService } from 'src/users/users.service';
 export declare class UnitsService {
     private prisma;
-    constructor(prisma: PrismaService);
+    private usersService;
+    constructor(prisma: PrismaService, usersService: UsersService);
     getUnits(userId: string): Promise<{
         lessons: {
             completed: boolean;

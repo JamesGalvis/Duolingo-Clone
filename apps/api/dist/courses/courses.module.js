@@ -19,6 +19,7 @@ exports.CoursesModule = CoursesModule = __decorate([
         controllers: [courses_controller_1.CoursesController],
         providers: [courses_service_1.CoursesService],
         imports: [prisma_module_1.PrismaModule],
+        exports: [courses_service_1.CoursesService]
     })
 ], CoursesModule);
 //# sourceMappingURL=courses.module.js.map

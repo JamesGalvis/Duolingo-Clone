@@ -11,6 +11,7 @@ const common_1 = require("@nestjs/common");
 const courses_module_1 = require("./courses/courses.module");
 const users_module_1 = require("./users/users.module");
 const units_module_1 = require("./units/units.module");
+const lessons_module_1 = require("./lessons/lessons.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -20,6 +21,7 @@ exports.AppModule = AppModule = __decorate([
             courses_module_1.CoursesModule,
             users_module_1.UsersModule,
             units_module_1.UnitsModule,
+            lessons_module_1.LessonsModule,
         ],
         controllers: [],
         providers: [],

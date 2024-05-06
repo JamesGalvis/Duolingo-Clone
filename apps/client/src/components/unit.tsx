@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { Lesson } from '@/types'
+import { Lesson, Unit as UnitType } from '@/types'
 import { Button } from '@/components/ui/button'
 import { LessonButton } from '@/components/lesson-button'
 
@@ -10,7 +10,7 @@ interface UnitProps {
   description: string
   title: string
   lessons: Lesson[]
-  activeLesson: Lesson | null
+  activeLesson: (Lesson & UnitType) | undefined
   activeLessonPercentage: number
 }
 
@@ -40,7 +40,7 @@ export function Unit({
               id={lesson.id}
               index={i}
               totalCount={lessons.length - 1}
-              current={true || isCurrent}
+              current={isCurrent}
               locked={isLocked}
               percentage={activeLessonPercentage}
             />

@@ -12,19 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UnitsService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_service_1 = require("../prisma/prisma.service");
+const users_service_1 = require("../users/users.service");
 let UnitsService = class UnitsService {
-    constructor(prisma) {
+    constructor(prisma, usersService) {
         this.prisma = prisma;
+        this.usersService = usersService;
     }
     async getUnits(userId) {
-        const userProgress = await this.prisma.userProgress.findUnique({
-            where: {
-                userId,
-            },
-            include: {
-                activeCourse: true,
-            },
-        });
+        const userProgress = await this.usersService.getUserProgress(userId);
         if (!userId || !userProgress.activeCourseId) {
             return [];
         }
@@ -50,6 +45,9 @@ let UnitsService = class UnitsService {
         });
         const normalizedData = data.map((unit) => {
             const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
+                if (lesson.challenges.length === 0) {
+                    return { ...lesson, completed: false };
+                }
                 const allCompletedChallenges = lesson.challenges.every((challenge) => {
                     return (challenge.challengeProgress &&
                         challenge.challengeProgress.length > 0 &&
@@ -65,6 +63,7 @@ let UnitsService = class UnitsService {
 exports.UnitsService = UnitsService;
 exports.UnitsService = UnitsService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService,
+        users_service_1.UsersService])
 ], UnitsService);
 //# sourceMappingURL=units.service.js.map

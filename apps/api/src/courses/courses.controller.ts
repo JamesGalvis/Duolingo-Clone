@@ -30,4 +30,18 @@ export class CoursesController {
       throw new BadRequestException(error);
     }
   }
+
+  @Get('/progress/:userId')
+  async getCourseProgress(@Param('userId') userId: string) {
+    try {
+      if (!userId) throw new BadRequestException(`User userId not provided`);
+
+      const courseProgress =
+        await this.coursesService.getCourseProgress(userId);
+
+      return courseProgress;
+    } catch (error) {
+      throw new BadRequestException(error);
+    }
+  }
 }

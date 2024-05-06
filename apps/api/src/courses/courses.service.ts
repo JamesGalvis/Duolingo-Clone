@@ -17,4 +17,66 @@ export class CoursesService {
       },
     });
   }
+
+  async getCourseProgress(userId: string) {
+    const userProgress = await this.prisma.userProgress.findUnique({
+      where: {
+        userId,
+      },
+      include: {
+        activeCourse: true,
+      },
+    });
+
+    if (!userId || !userProgress.activeCourse) {
+      return null;
+    }
+
+    const unitsInActiveCourse = await this.prisma.units.findMany({
+      where: {
+        courseId: userProgress.activeCourseId,
+      },
+      orderBy: {
+        order: 'asc',
+      },
+      include: {
+        lessons: {
+          include: {
+            unit: true,
+            challenges: {
+              include: {
+                challengeProgress: {
+                  where: {
+                    userId,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: {
+            order: 'asc',
+          },
+        },
+      },
+    });
+
+    const firstUncompletedLesson = unitsInActiveCourse
+      .flatMap((unit) => unit.lessons)
+      .find((lesson) => {
+        return lesson.challenges.some((challenge) => {
+          return (
+            !challenge.challengeProgress ||
+            challenge.challengeProgress.length === 0 ||
+            challenge.challengeProgress.some(
+              (progress) => progress.completed === false,
+            )
+          );
+        });
+      });
+
+    return {
+      activeLesson: firstUncompletedLesson,
+      activeLessonId: firstUncompletedLesson.id,
+    };
+  }
 }

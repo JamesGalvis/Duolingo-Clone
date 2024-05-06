@@ -16,36 +16,49 @@ export type UserProgress = {
 }
 
 export type Challenge = {
-  id: string;
-  type: string;
-  question: string;
-  order: number;
-  lessonId: string;
-  challengeProgress?: ChallengeProgress[];
-};
+  id: string
+  type: string
+  question: string
+  order: number
+  lessonId: string
+  challengeProgress?: ChallengeProgress[]
+}
 
 export type ChallengeProgress = {
-  id: string;
-  userId: string;
-  completed: boolean;
-  challengeId: string;
-  challenge: Challenge;
-};
+  id: string
+  userId: string
+  completed: boolean
+  challengeId: string
+  challenge: Challenge
+}
 
 export type Lesson = {
-  id: string;
-  title: string;
-  order: number;
-  unitId: string;
-  challenges: Challenge[];
-  completed: boolean;
-};
+  id: string
+  title: string
+  order: number
+  unitId: string
+  challenges: Challenge[]
+  completed: boolean
+}
+
+export type Unit = {
+  id: string
+  title: string
+  description: string
+  order: number
+  courseId: string
+}
 
 export type CourseUnit = {
-  id: string;
-  title: string;
-  description: string;
-  order: number;
-  courseId: string;
-  lessons: Lesson[];
-};
+  id: string
+  title: string
+  description: string
+  order: number
+  courseId: string
+  lessons: Lesson[]
+}
+
+export type CourseProgress = {
+  activeLessonId: string
+  activeLesson: Lesson & Unit
+}

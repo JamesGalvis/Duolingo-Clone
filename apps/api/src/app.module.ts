@@ -4,6 +4,7 @@ import { join } from 'path';
 import { CoursesModule } from './courses/courses.module';
 import { UsersModule } from './users/users.module';
 import { UnitsModule } from './units/units.module';
+import { LessonsModule } from './lessons/lessons.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UnitsModule } from './units/units.module';
     CoursesModule,
     UsersModule,
     UnitsModule,
+    LessonsModule,
   ],
   controllers: [],
   providers: [],

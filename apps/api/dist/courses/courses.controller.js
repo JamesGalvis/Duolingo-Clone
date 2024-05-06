@@ -35,6 +35,17 @@ let CoursesController = class CoursesController {
             throw new common_1.BadRequestException(error);
         }
     }
+    async getCourseProgress(userId) {
+        try {
+            if (!userId)
+                throw new common_1.BadRequestException(`User userId not provided`);
+            const courseProgress = await this.coursesService.getCourseProgress(userId);
+            return courseProgress;
+        }
+        catch (error) {
+            throw new common_1.BadRequestException(error);
+        }
+    }
 };
 exports.CoursesController = CoursesController;
 __decorate([
@@ -50,6 +61,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], CoursesController.prototype, "getCourseById", null);
+__decorate([
+    (0, common_1.Get)('/progress/:userId'),
+    __param(0, (0, common_1.Param)('userId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], CoursesController.prototype, "getCourseProgress", null);
 exports.CoursesController = CoursesController = __decorate([
     (0, common_1.Controller)('courses'),
     __metadata("design:paramtypes", [courses_service_1.CoursesService])

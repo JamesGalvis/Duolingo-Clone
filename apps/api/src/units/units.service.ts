@@ -1,19 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { UsersService } from 'src/users/users.service';
 
 @Injectable()
 export class UnitsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private usersService: UsersService,
+  ) {}
 
   async getUnits(userId: string) {
-    const userProgress = await this.prisma.userProgress.findUnique({
-      where: {
-        userId,
-      },
-      include: {
-        activeCourse: true,
-      },
-    });
+    const userProgress = await this.usersService.getUserProgress(userId);
 
     if (!userId || !userProgress.activeCourseId) {
       return [];
@@ -42,6 +39,10 @@ export class UnitsService {
 
     const normalizedData = data.map((unit) => {
       const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
+        if (lesson.challenges.length === 0) {
+          return { ...lesson, completed: false };
+        }
+
         const allCompletedChallenges = lesson.challenges.every((challenge) => {
           return (
             challenge.challengeProgress &&
